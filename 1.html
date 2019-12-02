@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/todos.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <div class="container">
+
+        <div class="addTodo">
+            <input type="text" id="todo-title" placeholder="משימה">
+            <button onclick="onAddClick()">Add</button>
+
+            Importance:
+            <select id="importance">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+
+        Sort By:
+        <select id="sort" onchange="onStatusSortChange(this)">
+            <option value="txt">txt</option>
+            <option value="created">created</option>
+            <option value="importance">importance</option>
+        </select>
+
+        <div class="filterTodos">
+            FIlter By:
+            <select id="status-filter" onchange="onStatusFilterChange(this)">
+                <option value="all">All</option>
+                <option value="done">Done</option>
+                <option value="active">Active</option>
+            </select>
+        </div>
+        <div class="modal-confirm"></div>
+        <ul class="todos">
+        </ul>
+
+        <div class="status">
+            Total Todos: <span id="total-todos">-</span> Active: <span id="active-todos">-</span>
+        </div>
+    </div>
+
+    <script src="./js/storageService.js"></script>
+    <script src="./js/todosService.js"></script>
+    <script src="./js/todosController.js"></script>
+</body>
+
+</html>
